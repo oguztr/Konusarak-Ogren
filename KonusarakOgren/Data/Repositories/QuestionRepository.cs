@@ -1,6 +1,6 @@
 ﻿using KonusarakOgren.Data.DataContext;
 using KonusarakOgren.Data.Repositories.Interfaces;
-using KonusarakOgren.Models;
+using KonusarakOgren.Application.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 

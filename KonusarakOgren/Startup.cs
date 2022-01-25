@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace KonusarakOgren
 {

@@ -1,4 +1,4 @@
-﻿using KonusarakOgren.Models.Responses;
+﻿using KonusarakOgren.Application.Models.Responses;
 using System.Threading.Tasks;
 
 namespace KonusarakOgren.Application.Interfaces

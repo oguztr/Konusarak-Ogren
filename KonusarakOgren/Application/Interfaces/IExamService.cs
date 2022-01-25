@@ -1,6 +1,6 @@
 ﻿using KonusarakOgren.Data.Entities;
-using KonusarakOgren.Models;
-using KonusarakOgren.Models.Responses;
+using KonusarakOgren.Application.Models;
+using KonusarakOgren.Application.Models.Responses;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

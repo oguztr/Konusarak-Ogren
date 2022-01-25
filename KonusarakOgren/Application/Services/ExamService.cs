@@ -8,8 +8,8 @@ using KonusarakOgren.Data.Entities;
 using KonusarakOgren.Data.Repositories;
 using KonusarakOgren.Data.Repositories.Interfaces;
 using KonusarakOgren.Infrastructure.Enum;
-using KonusarakOgren.Models;
-using KonusarakOgren.Models.Responses;
+using KonusarakOgren.Application.Models;
+using KonusarakOgren.Application.Models.Responses;
 
 namespace KonusarakOgren.Application.Services
 {

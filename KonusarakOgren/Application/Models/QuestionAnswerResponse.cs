@@ -1,4 +1,4 @@
-﻿namespace KonusarakOgren.Models
+﻿namespace KonusarakOgren.Application.Models
 {
     public class QuestionAnswerResponse
     {

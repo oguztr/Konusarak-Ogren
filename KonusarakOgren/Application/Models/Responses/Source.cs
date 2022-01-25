@@ -1,4 +1,4 @@
-﻿namespace KonusarakOgren.Models.Responses
+﻿namespace KonusarakOgren.Application.Models.Responses
 {
     public class Source
     {

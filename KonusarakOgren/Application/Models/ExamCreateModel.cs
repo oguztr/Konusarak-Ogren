@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KonusarakOgren.Models
+namespace KonusarakOgren.Application.Models
 {
     public class ExamCreateModel
     {

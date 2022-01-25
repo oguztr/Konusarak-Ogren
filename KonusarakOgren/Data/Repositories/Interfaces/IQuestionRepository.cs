@@ -1,4 +1,4 @@
-﻿using KonusarakOgren.Models;
+﻿using KonusarakOgren.Application.Models;
 
 namespace KonusarakOgren.Data.Repositories.Interfaces
 {

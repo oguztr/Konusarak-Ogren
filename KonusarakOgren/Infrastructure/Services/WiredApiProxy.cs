@@ -1,5 +1,5 @@
 ﻿using KonusarakOgren.Application.Interfaces;
-using KonusarakOgren.Models.Responses;
+using KonusarakOgren.Application.Models.Responses;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;

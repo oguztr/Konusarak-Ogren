@@ -1,6 +1,6 @@
 ﻿using KonusarakOgren.Infrastructure.Enum;
 
-namespace KonusarakOgren.Models
+namespace KonusarakOgren.Application.Models
 {
     public class ExamQuestionModel
     {
