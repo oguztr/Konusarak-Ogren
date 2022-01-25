@@ -1,9 +1,9 @@
-﻿using KonusarakOgren.Data.Entities;
-using KonusarakOgren.Models;
+﻿using KonusarakOgren.Core.Entities;
+using KonusarakOgren.Application.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
-namespace KonusarakOgren.Data.DataContext
+namespace KonusarakOgren.Infrastructure.Data.DataContext
 {
     public class DatabaseContext : DbContext
     {

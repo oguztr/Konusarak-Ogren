@@ -1,4 +1,4 @@
-﻿using KonusarakOgren.Data.Entities;
+﻿using KonusarakOgren.Core.Entities;
 using System;
 using System.Collections.Generic;
 

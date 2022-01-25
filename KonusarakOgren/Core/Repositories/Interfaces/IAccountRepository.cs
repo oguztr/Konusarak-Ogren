@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KonusarakOgren.Data.Repositories.Interfaces
+namespace KonusarakOgren.Core.Repositories.Interfaces
 {
     public interface IAccountRepository
     {

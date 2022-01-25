@@ -1,6 +1,6 @@
 ﻿using KonusarakOgren.Application.Models;
 
-namespace KonusarakOgren.Data.Repositories.Interfaces
+namespace KonusarakOgren.Core.Repositories.Interfaces
 {
     public interface IQuestionRepository
     {

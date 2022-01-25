@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using KonusarakOgren.Data.DataContext;
-using KonusarakOgren.Data.Entities;
+using KonusarakOgren.Infrastructure.Data.DataContext;
+using KonusarakOgren.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace KonusarakOgren.Data.Repositories
+namespace KonusarakOgren.Core.Repositories
 {
     public class ExamRepository : IExamRepository
     {

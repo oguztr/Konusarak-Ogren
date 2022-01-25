@@ -1,9 +1,9 @@
 ﻿using KonusarakOgren.Application.Proxies;
 using KonusarakOgren.Application.Interfaces;
 using KonusarakOgren.Application.Services;
-using KonusarakOgren.Data.DataContext;
-using KonusarakOgren.Data.Repositories;
-using KonusarakOgren.Data.Repositories.Interfaces;
+using KonusarakOgren.Infrastructure.Data.DataContext;
+using KonusarakOgren.Core.Repositories;
+using KonusarakOgren.Core.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -44,7 +44,7 @@ namespace KonusarakOgren
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddEntityFrameworkSqlite().AddDbContext<DatabaseContext>();
 
-            services.AddHttpClient<IWiredApiProxy, WiredApiProxy>(
+            services.AddHttpClient<IWiredApiProxy, WiredApi>(
                 httpClient =>
                 {
                     httpClient.BaseAddress = new Uri(Configuration["NewsApiUrl"]);

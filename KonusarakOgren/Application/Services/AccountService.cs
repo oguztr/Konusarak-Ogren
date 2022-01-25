@@ -1,6 +1,6 @@
 ﻿
 using KonusarakOgren.Application.Interfaces;
-using KonusarakOgren.Data.Repositories.Interfaces;
+using KonusarakOgren.Core.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

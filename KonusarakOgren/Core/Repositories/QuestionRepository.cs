@@ -1,10 +1,10 @@
-﻿using KonusarakOgren.Data.DataContext;
-using KonusarakOgren.Data.Repositories.Interfaces;
+﻿using KonusarakOgren.Infrastructure.Data.DataContext;
+using KonusarakOgren.Core.Repositories.Interfaces;
 using KonusarakOgren.Application.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace KonusarakOgren.Data.Repositories
+namespace KonusarakOgren.Core.Repositories
 {
     public class QuestionRepository : IQuestionRepository
     {

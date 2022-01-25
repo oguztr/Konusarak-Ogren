@@ -1,4 +1,4 @@
-﻿using KonusarakOgren.Data.Entities;
+﻿using KonusarakOgren.Core.Entities;
 using KonusarakOgren.Application.Models;
 using KonusarakOgren.Application.Models.Responses;
 using System.Collections.Generic;

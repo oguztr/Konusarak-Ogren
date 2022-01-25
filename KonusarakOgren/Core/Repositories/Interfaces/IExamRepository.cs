@@ -1,7 +1,7 @@
-﻿using KonusarakOgren.Data.Entities;
+﻿using KonusarakOgren.Core.Entities;
 using System.Collections.Generic;
 
-namespace KonusarakOgren.Data.Repositories
+namespace KonusarakOgren.Core.Repositories
 {
     public interface IExamRepository
     {

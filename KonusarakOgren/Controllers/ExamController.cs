@@ -1,6 +1,6 @@
 ﻿using KonusarakOgren.Application.Interfaces;
-using KonusarakOgren.Data.DataContext;
-using KonusarakOgren.Data.Entities;
+using KonusarakOgren.Infrastructure.Data.DataContext;
+using KonusarakOgren.Core.Entities;
 using KonusarakOgren.Infrastructure.Enum;
 using KonusarakOgren.Application.Models;
 using Microsoft.AspNetCore.Mvc;

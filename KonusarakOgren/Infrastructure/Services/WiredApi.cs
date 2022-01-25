@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace KonusarakOgren.Application.Proxies
 {
-    public class WiredApiProxy : IWiredApiProxy
+    public class WiredApi : IWiredApiProxy
     {
         public readonly HttpClient _httpClient;
         public readonly IConfiguration _configuration;
 
-        public WiredApiProxy(HttpClient httpClient, IConfiguration configuration)
+        public WiredApi(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _configuration = configuration;
@@ -34,7 +34,7 @@ namespace KonusarakOgren.Application.Proxies
                 return response;
             }
 
-            var errorMessage = $"{nameof(WiredApiProxy)} {nameof(GetWiredArticles)} throws exception status code: {restResponse.StatusCode} error: {restResponse.Content}";
+            var errorMessage = $"{nameof(WiredApi)} {nameof(GetWiredArticles)} throws exception status code: {restResponse.StatusCode} error: {restResponse.Content}";
             throw new Exception(errorMessage);
         }
     }

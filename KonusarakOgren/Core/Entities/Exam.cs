@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KonusarakOgren.Data.Entities
+namespace KonusarakOgren.Core.Entities
 {
     public class Exam
     {

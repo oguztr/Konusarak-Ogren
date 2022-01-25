@@ -1,4 +1,4 @@
-﻿namespace KonusarakOgren.Models
+﻿namespace KonusarakOgren.Core.Entities
 {
     public class User
     {

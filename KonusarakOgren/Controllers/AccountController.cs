@@ -1,5 +1,5 @@
 ﻿using KonusarakOgren.Application.Interfaces;
-using KonusarakOgren.Data.DataContext;
+using KonusarakOgren.Infrastructure.Data.DataContext;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace KonusarakOgren.Controllers
             if(_accountService.Login(username, password) != true)
             {
                 return BadRequest(false);
-            }
+            }   
 
             return RedirectToAction("Create", "Exam");
         }
