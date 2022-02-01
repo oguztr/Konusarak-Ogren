@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KonusarakOgren.Controllers
 {
+    [Authorize]
     public class ExamController : Controller
     {
         public readonly IExamService _examService;
@@ -18,7 +20,7 @@ namespace KonusarakOgren.Controllers
         {
             _examService = examService;
         }
-
+        
         public async Task<IActionResult> Create()
         {
             var response = await _examService.GetWiredArticles();

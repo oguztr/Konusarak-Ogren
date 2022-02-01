@@ -1,8 +1,14 @@
 ﻿using KonusarakOgren.Application.Interfaces;
+using KonusarakOgren.Core.Entities;
 using KonusarakOgren.Infrastructure.Data.DataContext;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace KonusarakOgren.Controllers
 {
@@ -21,17 +27,39 @@ namespace KonusarakOgren.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
+            if (ModelState.IsValid)
             {
-                return BadRequest(false);
-            }
+                User isUser = _accountService.Login(username, password);
 
-            if(_accountService.Login(username, password) != true)
+                if (isUser == null)
+                {
+                    return BadRequest(false);
+                }
+                List<Claim> userClaims = new List<Claim>();
+
+                userClaims.Add(new Claim(ClaimTypes.Name, isUser.UserName));
+                userClaims.Add(new Claim(ClaimTypes.Role, "User"));
+
+
+                var claimsIdentity = new ClaimsIdentity(userClaims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+                return RedirectToAction("Create", "Exam");
+            }
+            else
             {
-                return BadRequest(false);
-            }   
+                ModelState.AddModelError("", "Kullanıcı adı veya şifre yanlış");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectToAction("Create", "Exam");
         }

@@ -31,8 +31,7 @@ namespace KonusarakOgren.Application.Services
         public async Task<List<Article>> GetWiredArticles()
         {
             var response = await _wiredApiProxy.GetWiredArticles();
-
-            return response.Articles.Take(5).ToList();
+            return response.Take(5).ToList();
         }
 
         public void CreateExam(ExamCreateModel model)

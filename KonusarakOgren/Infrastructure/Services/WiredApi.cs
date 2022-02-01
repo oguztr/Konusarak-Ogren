@@ -1,8 +1,11 @@
-﻿using KonusarakOgren.Application.Interfaces;
+﻿using CsvHelper;
+using HtmlAgilityPack;
+using KonusarakOgren.Application.Interfaces;
 using KonusarakOgren.Application.Models.Responses;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -20,22 +23,39 @@ namespace KonusarakOgren.Application.Proxies
             _configuration = configuration;
         }
 
-        public async Task<WiredApiResponse> GetWiredArticles()
+
+        public async Task<List<Article>> GetWiredArticles()
         {
-            var newsApiKey = _configuration["NewsApiKey"];
-            var uri = $"/v2/top-headlines?sources=wired&apiKey={newsApiKey}";
-            var restResponse = await _httpClient.GetAsync(uri);
+            List<Article> articles = new List<Article>();
+            var url = "https://www.wired.com";
+            string recents = url + "/most-recent";
 
-            if(restResponse.StatusCode == HttpStatusCode.OK)
+            HtmlWeb web = new HtmlWeb();
+            var htmlDoc = web.Load(recents);
+            var nodes = htmlDoc.DocumentNode.SelectNodes("//ul[@class='archive-list-component__items']//li");
+
+            for (int i = 0; i < 5; i++)
             {
-                var content = await restResponse.Content.ReadAsStringAsync();
-                var response = JsonConvert.DeserializeObject<WiredApiResponse>(content);
+                var node = nodes[i];
+                var title = htmlDoc.DocumentNode.SelectNodes("//h2[@class='archive-item-component__title']")[i].InnerText;
 
-                return response;
+                var link = node.SelectSingleNode("a").Attributes["href"].Value;
+
+                string articleLink = url + link;
+                string content = GetArticle(articleLink);
+
+                articles.Add(new Article { Content = content, Title = title });
             }
+            return articles;
+        }
 
-            var errorMessage = $"{nameof(WiredApi)} {nameof(GetWiredArticles)} throws exception status code: {restResponse.StatusCode} error: {restResponse.Content}";
-            throw new Exception(errorMessage);
+        public static string GetArticle(string url)
+        {
+            HtmlWeb web = new HtmlWeb();
+            var htmlDoc = web.Load(url);
+            var nodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='body__inner-container']");
+            var article = nodes[0].InnerHtml;
+            return article;
         }
     }
 }

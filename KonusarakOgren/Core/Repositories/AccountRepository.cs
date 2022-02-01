@@ -2,6 +2,7 @@
 using KonusarakOgren.Core.Repositories.Interfaces;
 using System;
 using System.Linq;
+using KonusarakOgren.Core.Entities;
 
 namespace KonusarakOgren.Core.Repositories
 {
@@ -14,9 +15,14 @@ namespace KonusarakOgren.Core.Repositories
             _database = database;
         }
 
-        public bool Login(string username, string password)
+        public bool Logi(string username, string password)
         {
             var user = _database.Users.Any(x => x.UserName == username && x.Password == password);
+            return user;
+        } 
+        public User Login(string username, string password)
+        {
+            var user = _database.Users.FirstOrDefault(x => x.UserName == username && x.Password == password);
             return user;
         }
     }

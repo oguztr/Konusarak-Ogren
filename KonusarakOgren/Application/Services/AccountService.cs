@@ -1,5 +1,6 @@
 ﻿
 using KonusarakOgren.Application.Interfaces;
+using KonusarakOgren.Core.Entities;
 using KonusarakOgren.Core.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,12 @@ namespace KonusarakOgren.Application.Services
             _accountRepository = accountRepository;
         }
 
-        public bool Login(string username, string password)
+    
+
+        public bool Logi(string username, string password)
+        {
+            return _accountRepository.Logi(username, password);   
+        }public User Login(string username, string password)
         {
             return _accountRepository.Login(username, password);   
         }
